@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\MatchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +16,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return "Aquí es el home del proyecto SP4 Laravel";
 });
 
+// Rutas para equipos de fútbol
+Route::get('/team', [TeamController::class, 'index']);
+Route::get('/team/create', [TeamController::class, 'create']);
+Route::get('/team/{id}', [TeamController::class, 'show']);
+Route::get('/team/{id}/edit', [TeamController::class, 'edit']);
+Route::delete('/team/{id}', [TeamController::class, 'destroy']);
+
+// Rutas para partidos de fútbol
+Route::get('/match', [MatchController::class, 'index']);
+Route::get('/match/create', [MatchController::class, 'create']);
+Route::get('/match/{id}', [MatchController::class, 'show']);
+Route::get('/match/{id}/edit', [MatchController::class, 'edit']);
+Route::delete('/match/{id}', [MatchController::class, 'destroy']);
+
+
+//////////////////////////////////////////////////////
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
