@@ -16,25 +16,29 @@ use App\Http\Controllers\MatchController;
 |
 */
 
-
 Route::get('/', function () {
-    return "Aquí es el home del proyecto SP4 Laravel";
+    return view('home');
 });
 
-// Rutas para equipos de fútbol
-Route::get('/team', [TeamController::class, 'index']);
-Route::get('/team/create', [TeamController::class, 'create']);
-Route::get('/team/{id}', [TeamController::class, 'show']);
-Route::get('/team/{id}/edit', [TeamController::class, 'edit']);
-Route::delete('/team/{id}', [TeamController::class, 'destroy']);
+// Rutas para Equipos (Teams)
 
-// Rutas para partidos de fútbol
-Route::get('/match', [MatchController::class, 'index']);
-Route::get('/match/create', [MatchController::class, 'create']);
-Route::get('/match/{id}', [MatchController::class, 'show']);
-Route::get('/match/{id}/edit', [MatchController::class, 'edit']);
-Route::delete('/match/{id}', [MatchController::class, 'destroy']);
+Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');
+Route::get('/teams/create', [TeamController::class, 'create'])->name('teams.create');
+Route::post('/teams', [TeamController::class, 'store'])->name('teams.store');
+Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+Route::get('/teams/{team}/edit', [TeamController::class, 'edit'])->name('teams.edit');
+Route::put('/teams/{team}', [TeamController::class, 'update'])->name('teams.update');
+Route::delete('/teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');
 
+// Rutas para Partidos (Matches)
+
+Route::get('/matches', [MatchController::class, 'index'])->name('matches.index');
+Route::get('/matches/create', [MatchController::class, 'create'])->name('matches.create');
+Route::post('/matches', [MatchController::class, 'store'])->name('matches.store');
+Route::get('/matches/{match}', [MatchController::class, 'show'])->name('matches.show');
+Route::get('/matches/{match}/edit', [MatchController::class, 'edit'])->name('matches.edit');
+Route::put('/matches/{match}', [MatchController::class, 'update'])->name('matches.update');
+Route::delete('/matches/{match}', [MatchController::class, 'destroy'])->name('matches.destroy');
 
 //////////////////////////////////////////////////////
 Route::get('/dashboard', function () {
