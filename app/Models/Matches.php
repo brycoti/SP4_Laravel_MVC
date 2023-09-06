@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Matches extends Model
 {
     use HasFactory;
+
+    protected $table = "matches"; // match es una palabra reservada, asi me aseguro usar la tabla matches
 }
