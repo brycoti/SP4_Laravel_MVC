@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
     public function index()
     {
-        return "Aquí va el CRUD de equipos de fútbol";
+        $teams = Team::paginate(5);
+
+        return view ('teams.indexTeams', compact('teams'));
     }
 
     public function create()
@@ -16,9 +18,9 @@ class TeamController extends Controller
         return "Aquí va el create de equipos de fútbol";
     }
 
-    public function show($id)
-    {
-        return "Aquí se muestra el equipo de fútbol con ID: $id";
+    public function show($id){
+        $team = Team::find($id);
+        return view ('teams.showTeams', compact('team'));
     }
 
     public function edit($id)

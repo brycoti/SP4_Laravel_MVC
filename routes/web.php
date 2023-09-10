@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\MatchController;
 /*
@@ -16,16 +17,15 @@ use App\Http\Controllers\MatchController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
+
 
 // Rutas para Equipos (Teams)
 
 Route::get('/teams', [TeamController::class, 'index'])->name('teams.index');
 Route::get('/teams/create', [TeamController::class, 'create'])->name('teams.create');
-Route::post('/teams', [TeamController::class, 'store'])->name('teams.store');
-Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
+// Route::post('/teams', [TeamController::class, 'store'])->name('teams.store');
+Route::get('/teams/{id}', [TeamController::class, 'show'])->name('teams.show');
 Route::get('/teams/{team}/edit', [TeamController::class, 'edit'])->name('teams.edit');
 Route::put('/teams/{team}', [TeamController::class, 'update'])->name('teams.update');
 Route::delete('/teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');

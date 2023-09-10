@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TeamSeeder::class,
             MatchesSeeder::class,
-            // Puedes agregar otros seeders aquí si lo deseas...
+    
         ]);
     }
 }
