@@ -21,6 +21,7 @@ class CreateTeamsTable extends Migration
             $table->integer('losses')->default(0);
             $table->integer('draws')->default(0);
             $table->integer('matches_played')->default(0);
+            $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
         });
     }
