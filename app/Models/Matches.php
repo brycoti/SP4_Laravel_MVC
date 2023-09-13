@@ -10,4 +10,18 @@ class Matches extends Model
     use HasFactory;
 
     protected $table = "matches"; // match es una palabra reservada, asi me aseguro usar la tabla matches
+    protected $primaryKey = 'match_id';
+
+    public function homeTeam()
+    {
+        return $this->belongsTo(Team::class, 'id_home_team', 'team_id');
+    }
+
+    /**
+     * Get the away team of the match.
+     */
+    public function awayTeam()
+    {
+        return $this->belongsTo(Team::class, 'id_away_team', 'team_id');
+    }
 }

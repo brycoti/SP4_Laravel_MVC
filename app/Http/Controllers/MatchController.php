@@ -2,9 +2,9 @@
 // app/Http/Controllers/MatchController.php
 
 namespace App\Http\Controllers;
-
+use App\Models\Match;
 use Illuminate\Http\Request;
-use App\Models\Match; // Asegúrate de importar el modelo adecuado
+
 
 class MatchController extends Controller
 {
