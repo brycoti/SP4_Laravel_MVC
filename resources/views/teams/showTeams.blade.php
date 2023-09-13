@@ -3,9 +3,11 @@
 @section('content')
 
 <div class="container mx-auto mt-8 px-4 h-screen">
-    <h1 class="text-center text-3xl font-semibold mb-6">Welcome to Team: <span class="text-blue-600 italic">{{$team->team_name}}</span></h1>
+    <h1 class="text-center text-3xl font-semibold mb-6">Welcome to Team: 
+        <span class="text-blue-600 italic">{{$team->team_name}}</span>
+    </h1>
 
-    <div class="shadow-lg rounded-lg overflow-hidden">
+    <div class="shadow-lg rounded-lg overflow-hidden mb-6">
         <table class="min-w-full leading-normal bg-white">
             <thead class="bg-blue-600 text-white">
                 <tr>
@@ -19,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="hover:bg-gray-100">
+                <tr class="hover:bg-gray-100 transition duration-300">
                     <td class="py-3 px-6 border-b">{{ $team->goals_for }}</td>
                     <td class="py-3 px-6 border-b">{{ $team->goals_against }}</td>
                     <td class="py-3 px-6 border-b">{{ $team->points }}</td>
@@ -31,7 +33,19 @@
             </tbody>
         </table>
     </div>
-</div>
+    <div class="text-center">
+        <a href="{{route('teams.edit', $team)}}" 
+            class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition duration-300">
+            Edit Team
+        </a>
+        <br>
+        <form action="{{route('teams.destroy', $team)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition duration-300">Delete</button>
+        </form>
 
+    </div>
+</div>
 
 @endsection
