@@ -1,5 +1,9 @@
 @extends('layouts.league')
 
+@section('title')
+    Home League
+@endsection
+
 @section('content')
     <div class="container mx-auto p-4 h-full flex items-center justify-center">
         <div class="bg-blue-500 text-white p-8 rounded-lg shadow-md">

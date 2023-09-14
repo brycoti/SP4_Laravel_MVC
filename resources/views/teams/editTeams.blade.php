@@ -1,5 +1,9 @@
 @extends('layouts.league')
 
+@section('title')
+Edit Team {{$team->team_name}}
+@endsection
+
 @section('content')
 
 <div class="h-full">

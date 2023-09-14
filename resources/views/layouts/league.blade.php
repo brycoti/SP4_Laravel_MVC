@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liga de Fútbol</title>
+    <title>@yield('title')</title>
+    <link rel="icon" href="{{ asset('ball.png') }}" type="image/x-icon">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-</head>
-
 <body class="bg-white">
 
-    <header class="bg-blue-600 text-white p-6">
+    <header class="bg-blue-600 text-white p-6 ">
         <div class="container mx-auto">
             <div class="flex justify-between items-center space-x-4">
                 <h1 class="text-3xl font-semibold">Football League</h1>

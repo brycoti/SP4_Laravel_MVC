@@ -1,5 +1,10 @@
 @extends('layouts.league')
 
+
+@section('title')
+Team {{$team->team_name}}
+@endsection
+
 @section('content')
 
 <div class="container mx-auto mt-8 px-4 h-screen">
