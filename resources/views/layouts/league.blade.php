@@ -10,22 +10,20 @@
 
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-white">
 
     <header class="bg-blue-600 text-white p-6">
         <div class="container mx-auto">
             <div class="flex justify-between items-center space-x-4">
                 <h1 class="text-3xl font-semibold">Football League</h1>
                 <nav class="space-x-4">
-                    <a href="{{route('home')}}" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">...</svg>
-                        Home
+                    <a href="{{route('home')}}" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 text-center">
+                       Home
                     </a>
-                    <a href="{{route('teams.index')}}" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">...</svg>
+                    <a href="{{route('teams.index')}}" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 text-center">
                         Teams
-                    </a>
-                    <a href="{{route('teams.create')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                     </a>
+                    <a href="{{route('teams.create')}}" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 text-center">
                         Create Team
                     </a>
                 </nav>
