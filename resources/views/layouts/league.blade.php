@@ -27,6 +27,9 @@
                     <a href="{{route('teams.create')}}" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 text-center">
                         Create Team
                     </a>
+                    <a href="{{route('matches.index')}}" class="inline-flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 text-center">
+                        Matches
+                     </a>
                 </nav>
             </div>
         </div>

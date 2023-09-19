@@ -2,7 +2,7 @@
 // app/Http/Controllers/MatchController.php
 
 namespace App\Http\Controllers;
-use App\Models\Match;
+use App\Models\Matches;
 use Illuminate\Http\Request;
 
 
@@ -10,7 +10,9 @@ class MatchController extends Controller
 {
     public function index()
     {
-        // Lógica para mostrar una lista de partidos
+        $matches = Matches::orderBy('match_id', "desc")->paginate(10);
+
+        return view ('matches.indexMatches', compact('matches'));
     }
 
     public function create()
@@ -23,9 +25,9 @@ class MatchController extends Controller
         // Lógica para guardar un nuevo partido en la base de datos
     }
 
-    public function show($id)
+    public function show(Matches $match)
     {
-        // Lógica para mostrar los detalles de un partido específico
+        return view ('matches.showMatches', compact('match'));
     }
 
     public function edit($id)
@@ -38,8 +40,9 @@ class MatchController extends Controller
         // Lógica para actualizar los datos de un partido en la base de datos
     }
 
-    public function destroy($id)
-    {
-        // Lógica para eliminar un partido de la base de datos
+    public function destroy(Matches $match){  
+        $match->delete();
+
+        return redirect()->route('matches.index');
     }
 }
