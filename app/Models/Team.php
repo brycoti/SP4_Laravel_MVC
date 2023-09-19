@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     protected $primaryKey = 'team_id';
+    public $timestamps = false;
 
     //protected $fillable = ['team_name'];
     protected $guarded = [];
