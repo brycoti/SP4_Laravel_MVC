@@ -22,7 +22,7 @@ class MatchesSeeder extends Seeder
                 'away_team_goals' => 0,
                 'match_result' => 'Draw',
                 'Status' => 'Finished',
-                'deleted_at' => null
+                
             ],
             [
                 'time' => Carbon::now()->subDays(10),
@@ -32,7 +32,7 @@ class MatchesSeeder extends Seeder
                 'away_team_goals' => 1,
                 'match_result' => 'Home Team Win',
                 'Status' => 'Finished',
-                'deleted_at' => null
+                
             ],
             [
                 'time' => Carbon::now(),
@@ -42,7 +42,7 @@ class MatchesSeeder extends Seeder
                 'away_team_goals' => 0,
                 'match_result' => null,
                 'Status' => 'In Progress',
-                'deleted_at' => null
+               
             ],
             [
                 'time' => Carbon::now()->addDays(2),
@@ -52,7 +52,7 @@ class MatchesSeeder extends Seeder
                 'away_team_goals' => 0,
                 'match_result' => null,
                 'Status' => 'Scheduled',
-                'deleted_at' => null
+              
             ],
             [
                 'time' => Carbon::now()->addDays(4),
@@ -62,7 +62,7 @@ class MatchesSeeder extends Seeder
                 'away_team_goals' => 0,
                 'match_result' => null,
                 'Status' => 'Scheduled',
-                'deleted_at' => null
+                
             ],
             [
                 'time' => Carbon::now()->addDays(6),
@@ -72,7 +72,7 @@ class MatchesSeeder extends Seeder
                 'away_team_goals' => 0,
                 'match_result' => null,
                 'Status' => 'Scheduled',
-                'deleted_at' => null
+                
             ],
 
 

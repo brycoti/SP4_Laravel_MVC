@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Team;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Carbon;
 
 class TeamSeeder extends Seeder
 {
@@ -23,7 +22,6 @@ class TeamSeeder extends Seeder
                 'losses' => 0,
                 'draws' => 1,
                 'matches_played' => 1,
-                'deleted_at' => null  // Si quieres simular que un equipo está "eliminado", puedes poner: Carbon::now()
             ],
             [
                 'team_name' => 'Team B',
@@ -34,7 +32,6 @@ class TeamSeeder extends Seeder
                 'losses' => 0,
                 'draws' => 1,
                 'matches_played' => 1,
-                'deleted_at' => null
             ],
 
             [
@@ -45,8 +42,7 @@ class TeamSeeder extends Seeder
                 'wins' => 1,
                 'losses' => 0,
                 'draws' => 0,
-                'matches_played' => 1,
-                'deleted_at' => null
+                'matches_played' => 1, 
             ],
 
             [
@@ -57,8 +53,7 @@ class TeamSeeder extends Seeder
                 'wins' => 0,
                 'losses' => 1,
                 'draws' => 0,
-                'matches_played' => 1,
-                'deleted_at' => null
+                'matches_played' => 1,  
             ],
 
             [
@@ -69,8 +64,7 @@ class TeamSeeder extends Seeder
                 'wins' => 0,
                 'losses' => 0,
                 'draws' => 0,
-                'matches_played' => 1,
-                'deleted_at' => null
+                'matches_played' => 1, 
             ],
             [
                 'team_name' => 'Team F',
@@ -81,7 +75,6 @@ class TeamSeeder extends Seeder
                 'losses' => 0,
                 'draws' => 0,
                 'matches_played' => 1,
-                'deleted_at' => null
             ],
             [
                 'team_name' => 'Team G',
@@ -91,8 +84,7 @@ class TeamSeeder extends Seeder
                 'wins' => 0,
                 'losses' => 0,
                 'draws' => 0,
-                'matches_played' => 0,
-                'deleted_at' => null
+                'matches_played' => 0, 
             ],
             [
                 'team_name' => 'Team H',
@@ -103,7 +95,6 @@ class TeamSeeder extends Seeder
                 'losses' => 0,
                 'draws' => 0,
                 'matches_played' => 0,
-                'deleted_at' => null
             ],
             [
                 'team_name' => 'Team I',
@@ -113,8 +104,7 @@ class TeamSeeder extends Seeder
                 'wins' => 0,
                 'losses' => 0,
                 'draws' => 0,
-                'matches_played' => 0,
-                'deleted_at' => null
+                'matches_played' => 0,                
             ],
             [
                 'team_name' => 'Team J',
@@ -124,10 +114,8 @@ class TeamSeeder extends Seeder
                 'wins' => 0,
                 'losses' => 0,
                 'draws' => 0,
-                'matches_played' => 0,
-                'deleted_at' => null
+                'matches_played' => 0,         
             ],
-
             [
                 'team_name' => 'Team Z',
                 'goals_for' => 0,
@@ -136,55 +124,8 @@ class TeamSeeder extends Seeder
                 'wins' => 0,
                 'losses' => 0,
                 'draws' => 0,
-                'matches_played' => 0,
-                'deleted_at' => null
-            ],
-            [
-                'team_name' => 'Team Z1',
-                'goals_for' => 0,
-                'goals_against' => 0,
-                'points' => 0,
-                'wins' => 0,
-                'losses' => 0,
-                'draws' => 0,
-                'matches_played' => 0,
-                'deleted_at' => null
-            ],
-            [
-                'team_name' => 'Team Z2',
-                'goals_for' => 0,
-                'goals_against' => 0,
-                'points' => 0,
-                'wins' => 0,
-                'losses' => 0,
-                'draws' => 0,
-                'matches_played' => 0,
-                'deleted_at' => null
-            ],
-            [
-                'team_name' => 'Team Z3',
-                'goals_for' => 0,
-                'goals_against' => 0,
-                'points' => 0,
-                'wins' => 0,
-                'losses' => 0,
-                'draws' => 0,
-                'matches_played' => 0,
-                'deleted_at' => null
-            ],
-            [
-                'team_name' => 'Team Z4',
-                'goals_for' => 0,
-                'goals_against' => 0,
-                'points' => 0,
-                'wins' => 0,
-                'losses' => 0,
-                'draws' => 0,
-                'matches_played' => 0,
-                'deleted_at' => null
+                'matches_played' => 0,   
             ]
-
-
         ]);
     }
 }

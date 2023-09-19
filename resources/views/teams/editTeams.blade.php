@@ -1,30 +1,44 @@
 @extends('layouts.league')
 
+@section('title')
+Edit Team {{$team->team_name}}
+@endsection
+
 @section('content')
 
-<div class="container mx-auto mt-20 p-6 bg-blue-100 rounded-lg">
-    <div class="text-center mb-10">
-        <h1 class="text-blue-800 text-3xl font-semibold mb-2">Edit Team</h1>
-        <p class="text-blue-600">Update a team</p>
+<div class="h-full">
+    <div class="text-center mb-10 bg-blue-600 text-white p-4 rounded">
+        <h1 class="text-white text-3xl font-semibold mb-4">Edit Team</h1>
+        <p class="text-blue text-lg">Update a team</p>
     </div>
     
-    <div class="w-full max-w-md mx-auto">
-        <form action="{{ route('teams.update', $team->team_id) }}" method="POST" class="bg-white p-6 rounded-lg shadow-md">
+    <div class="w-full max-w-lg mx-auto bg-indigo-100 shadow-md rounded px-8 pt-6 pb-8">
+        <form action="{{ route('teams.update', $team->team_id) }}" method="POST" class="bg-white p-8 rounded-lg shadow-md">
             @csrf
             @method('PUT')
 
-            <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-blue-700 mb-2">Team name:</label>
-                <input type="text" id="name" name="name" value="{{ $team->team_name }}" 
+            <div class="mb-6 bg-in">
+                <label for="name" class="block text-lg font-medium text-blue-900 mb-2">Team name:
+                    <input type="text" id="name" name="team_name" value="{{ old('team_name', $team->team_name) }}" 
                        placeholder="Type the name of the team" 
-                       class="mt-1 p-2 w-full border rounded-md border-blue-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-            </div>
+                       class="mt-1 p-3 w-full border rounded-md border-blue-200 focus:border-blue-500 transition-all duration-300 focus:ring-2 focus:ring-blue-500 outline-none">
+            
+                </label>
+
+                @error('team_name') 
+                    <br>    
+                        <small>*{{$message}}</small>
+                    <br>    
+                @enderror
+
+                </div>
 
             <div class="text-center">
-                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200">Update Team</button>
+                <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-800 focus:bg-blue-700 active:shadow-inner transition-all duration-300 focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-200">Update Team</button>
             </div>
         </form>
     </div>
 </div>
 
 @endsection
+
