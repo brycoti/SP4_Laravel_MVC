@@ -18,11 +18,20 @@ Edit Team {{$team->team_name}}
             @method('PUT')
 
             <div class="mb-6 bg-in">
-                <label for="name" class="block text-lg font-medium text-blue-900 mb-2">Team name:</label>
-                <input type="text" id="name" name="name" value="{{ $team->team_name }}" 
+                <label for="name" class="block text-lg font-medium text-blue-900 mb-2">Team name:
+                    <input type="text" id="name" name="team_name" value="{{ old('team_name', $team->team_name) }}" 
                        placeholder="Type the name of the team" 
                        class="mt-1 p-3 w-full border rounded-md border-blue-200 focus:border-blue-500 transition-all duration-300 focus:ring-2 focus:ring-blue-500 outline-none">
-            </div>
+            
+                </label>
+
+                @error('team_name') 
+                    <br>    
+                        <small>*{{$message}}</small>
+                    <br>    
+                @enderror
+
+                </div>
 
             <div class="text-center">
                 <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-800 focus:bg-blue-700 active:shadow-inner transition-all duration-300 focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-200">Update Team</button>
