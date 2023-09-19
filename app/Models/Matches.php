@@ -11,6 +11,7 @@ class Matches extends Model
 
     protected $table = "matches"; // match es una palabra reservada, asi me aseguro usar la tabla matches
     protected $primaryKey = 'match_id';
+    public $timestamps = false;
 
     public function homeTeam()
     {
