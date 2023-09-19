@@ -54,5 +54,4 @@ Match {{$match->match_id}}
 </form>
 </div>
 
-
 @endsection
