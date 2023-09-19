@@ -1,9 +1,14 @@
 @extends('layouts.league')
 
+
+@section('title')
+Team {{$team->team_name}}
+@endsection
+
 @section('content')
 
 <div class="container mx-auto mt-8 px-4 h-screen">
-    <h1 class="text-center text-3xl font-semibold mb-6">Welcome to Team: 
+    <h1 class="text-center text-3xl font-semibold mb-6">Welcome to Team:
         <span class="text-blue-600 italic">{{$team->team_name}}</span>
     </h1>
 
@@ -33,19 +38,24 @@
             </tbody>
         </table>
     </div>
-    <div class="text-center">
-        <a href="{{route('teams.edit', $team)}}" 
-            class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition duration-300">
-            Edit Team
-        </a>
-        <br>
-        <form action="{{route('teams.destroy', $team)}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition duration-300">Delete</button>
-        </form>
 
-    </div>
+    <div class="text-center">
+        <!-- Edit Team Button -->
+        <a href="{{route('teams.edit', $team)}}"
+           class="inline-flex items-center bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition duration-300 mr-4">
+           Edit Team
+        </a>
+
+        <!-- Delete Team Button -->
+<form action="{{route('teams.destroy', $team)}}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this team?');">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition duration-300">
+        Delete
+    </button>
+</form>
 </div>
+
+
 
 @endsection

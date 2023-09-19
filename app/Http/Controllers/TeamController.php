@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Team;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTeam;
+
 
 class TeamController extends Controller
 {
@@ -17,13 +20,18 @@ class TeamController extends Controller
         return view ('teams.createTeams');
     }
 
-    public function store(Request $request){
+    public function store(StoreTeam $request){
+        
+        /*$request->validate([
+            'team_name' => 'required|max:30|min:3'
+        ]); */
+        
         /*$team = new Team();
         $team->team_name = $request->name;
         $team->save(); */
 
         $team = Team::create([
-            'team_name' => $request->name
+            'team_name' => $request->team_name
         ]); 
 
        //$team = Team::create($request->all());
@@ -39,12 +47,14 @@ class TeamController extends Controller
         return view ('teams.editTeams', compact('team'));
     }
 
-    public function update(Request $request, Team $team)  {
-       /* $team->team_name = $request->name;
+    public function update(StoreTeam $request, Team $team)  {
+       
+       
+        /* $team->team_name = $request->name;
         $team->save(); */
 
         $team->update([
-            'team_name' => $request->name
+            'team_name' => $request->team_name
         ]);
 
         //$team = Team::create($request->all());
