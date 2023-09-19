@@ -17,7 +17,7 @@ use App\Http\Controllers\MatchController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 // Rutas para Equipos (Teams)

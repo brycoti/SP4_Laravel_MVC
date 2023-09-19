@@ -1,10 +1,16 @@
 @extends('layouts.league')
 
+@section('title')
+    Index Teams
+@endsection
+
 @section('content')
     <div class="container mx-auto p-6">
         <div class="bg-blue-500 text-white p-8 rounded-md shadow-lg mb-6">
-            <h1 class="text-3xl font-bold mb-4">Bienvenido a la página de inicio de Teams</h1>
-        </div>
+            <h1 class="text-3xl font-bold mb-4">Index Teams</h1>
+            <p class="text-xl font-bold mb-4">Select the desired team from the list by clicking on its name. Once highlighted, click on it to view more detailed information. </h1>
+        </p>
+            
 
         <div class="shadow-lg rounded-lg overflow-hidden bg-white">
             <table class="min-w-full leading-normal">
