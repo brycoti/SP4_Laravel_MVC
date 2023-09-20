@@ -41,7 +41,7 @@ class MatchesSeeder extends Seeder
                 'home_team_goals' => 3,
                 'away_team_goals' => 0,
                 'match_result' => null,
-                'Status' => 'In Progress',
+                'Status' => 'Finished',
                
             ],
             [

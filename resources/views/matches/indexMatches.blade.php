@@ -31,8 +31,8 @@
                     <tr class="hover:bg-gray-100">
                         <td class="py-3 px-6 border-b"><a href="{{ route('matches.show', $match->match_id) }}" class="text-blue-600 hover:underline">{{ $match->match_id }}</a></td>
                         <td class="py-3 px-6 border-b">{{ $match->time }}</td>
-                        <td class="py-3 px-6 border-b">{{ $match->id_home_team }}</td>
-                        <td class="py-3 px-6 border-b">{{ $match->id_away_team }}</td>
+                        <td class="py-3 px-6 border-b">{{ $match->homeTeam->team_name }}</td>
+                        <td class="py-3 px-6 border-b">{{ $match->awayTeam->team_name }}</td>
                         <td class="py-3 px-6 border-b">{{ $match->home_team_goals }}</td>
                         <td class="py-3 px-6 border-b">{{ $match->away_team_goals }}</td>
                         <td class="py-3 px-6 border-b">{{ $match->match_result }}</td>

@@ -107,7 +107,7 @@ class TeamSeeder extends Seeder
                 'matches_played' => 0,                
             ],
             [
-                'team_name' => 'Team J',
+                'team_name' => 'Team 1',
                 'goals_for' => 0,
                 'goals_against' => 0,
                 'points' => 0,
@@ -117,7 +117,7 @@ class TeamSeeder extends Seeder
                 'matches_played' => 0,         
             ],
             [
-                'team_name' => 'Team Z',
+                'team_name' => 'Team 2',
                 'goals_for' => 0,
                 'goals_against' => 0,
                 'points' => 0,

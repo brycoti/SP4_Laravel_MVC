@@ -7,27 +7,28 @@ Match {{$match->match_id}}
 @section('content')
 
 <div class="container mx-auto mt-8 px-4 h-screen">
-    <h1 class="text-center text-3xl font-semibold mb-6">Welcome to Team:
+    <h1 class="text-center text-3xl font-semibold mb-6">Welcome to Match number:
         <span class="text-blue-600 italic">{{$match->match_id}}</span>
     </h1>
 
     <div class="shadow-lg rounded-lg overflow-hidden mb-6">
         <table class="min-w-full leading-normal bg-white">
             <thead class="bg-blue-600 text-white">
-            <th class="py-3 px-6">Match number</th>
+                        <th class="py-3 px-6">Match Number</th>
                         <th class="py-3 px-6">Time</th>
                         <th class="py-3 px-6">Home team</th>
-                        <th class="py-3 px-6">away team</th>
+                        <th class="py-3 px-6">Away team</th>
                         <th class="py-3 px-6">Home team goals</th>
-                        <th class="py-3 px-6">awat team goals</th>
+                        <th class="py-3 px-6">Away team goals</th>
                         <th class="py-3 px-6">Match result</th>
                         <th class="py-3 px-6">Status</th>
             </thead>
             <tbody>
                 <tr class="hover:bg-gray-100 transition duration-300">
+                <td class="py-3 px-6 border-b">{{ $match->match_id }}</td>
                 <td class="py-3 px-6 border-b">{{ $match->time }}</td>
-                <td class="py-3 px-6 border-b">{{ $match->id_home_team }}</td>
-                <td class="py-3 px-6 border-b">{{ $match->id_away_team }}</td>
+                <td class="py-3 px-6 border-b">{{ $match->homeTeam->team_name }} </td>
+                <td class="py-3 px-6 border-b">{{ $match->awayTeam->team_name }} </td>
                 <td class="py-3 px-6 border-b">{{ $match->home_team_goals }}</td>
                 <td class="py-3 px-6 border-b">{{ $match->away_team_goals }}</td>
                 <td class="py-3 px-6 border-b">{{ $match->match_result }}</td>

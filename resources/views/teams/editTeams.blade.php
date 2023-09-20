@@ -1,44 +1,52 @@
 @extends('layouts.league')
 
 @section('title')
-Edit Team {{$team->team_name}}
+Create New Team
 @endsection
 
 @section('content')
+<div class="py-12 h-full">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-<div class="h-full">
-    <div class="text-center mb-10 bg-blue-600 text-white p-4 rounded">
-        <h1 class="text-white text-3xl font-semibold mb-4">Edit Team</h1>
-        <p class="text-blue text-lg">Update a team</p>
-    </div>
-    
-    <div class="w-full max-w-lg mx-auto bg-indigo-100 shadow-md rounded px-8 pt-6 pb-8">
-        <form action="{{ route('teams.update', $team->team_id) }}" method="POST" class="bg-white p-8 rounded-lg shadow-md">
-            @csrf
-            @method('PUT')
+        <div class="bg-blue-600 text-white p-6 mb-6 rounded focus:outline-none">
+            <h1 class="text-2xl font-semibold text-center">Here you can create your New Team!</h1>
+        </div>
 
-            <div class="mb-6 bg-in">
-                <label for="name" class="block text-lg font-medium text-blue-900 mb-2">Team name:
-                    <input type="text" id="name" name="team_name" value="{{ old('team_name', $team->team_name) }}" 
-                       placeholder="Type the name of the team" 
-                       class="mt-1 p-3 w-full border rounded-md border-blue-200 focus:border-blue-500 transition-all duration-300 focus:ring-2 focus:ring-blue-500 outline-none">
-            
-                </label>
+        <div class="p-4 sm:p-8 mb-6 bg-blue-100 shadow sm:rounded-lg flex items-center justify-center">
+            <form action="{{ route('teams.store') }}" method="POST" class="max-w-xl">
+                @csrf
 
-                @error('team_name') 
-                    <br>    
-                        <small>*{{$message}}</small>
-                    <br>    
-                @enderror
+                <div class="mb-6 bg-w">
+                    <label for="name" class="block text-3xl text-black-600 mb-4 text-center">
+                        Name:
+                        <br><br>
+                        <input
+                        type="text"
+                        name="team_name"
+                        id="name"
+                        value="{{ old('team_name') }}"
+                        class="text-center shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                        placeholder="Enter team name">
+                    </label>
 
+                    @error('team_name')
+                        <br>
+                            <small>*{{$message}}</small>
+                        <br>
+                    @enderror           
+                    
                 </div>
 
-            <div class="text-center">
-                <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-800 focus:bg-blue-700 active:shadow-inner transition-all duration-300 focus:outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-200">Update Team</button>
-            </div>
-        </form>
+                <div class="px-4 mt-12">
+                    <button
+                        type="submit"
+                        class=" text-xl inline-flex px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out">
+                        Create New Team
+                    </button>
+                </div>
+            </form>
+        </div>
+
     </div>
 </div>
-
 @endsection
-
