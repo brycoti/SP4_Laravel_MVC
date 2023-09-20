@@ -1,54 +1,53 @@
 @extends('layouts.league')
 
-@section('title')
-Update Match {{$match->match_id}}
-@endsection
+@section('title', 'Update Match')
 
 @section('content')
+<div class="container">
+    <h2>Update Match #{{ $match->match_id }}</h2>
 
+    <form method="POST" action="{{ route('matches.update', $match->match_id) }}">
+        @csrf
+        @method('PUT')
 
-<form method="POST" action="{{route('matches.update', $match->match_id)}}">
-    @csrf
-    @method('put')
+        <div class="form-group">
+            <label for="id_home_team">Home Team:</label>
+            <select id="id_home_team" name="id_home_team" class="form-control" required>
+                @foreach($teams as $team)
+                    <option value="{{ $team->team_id }}" {{ $match->id_home_team == $team->team_id ? 'selected' : '' }}>
+                        {{ $team->team_name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
 
-    <label for="id_home_team">Home Team:</label>
-    <select id="id_home_team" name="id_home_team" required>
-        @foreach($teams as $team)
-            <option value="{{ $team->team_id }}">{{ $team->team_name }}</option>
-        @endforeach
-    </select>
-    <br><br>
+        <div class="form-group">
+            <label for="id_away_team">Away Team:</label>
+            <select id="id_away_team" name="id_away_team" class="form-control" required>
+                @foreach($teams as $team)
+                    <option value="{{ $team->team_id }}" {{ $match->id_away_team == $team->team_id ? 'selected' : '' }}>
+                        {{ $team->team_name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
 
-    <label for="id_away_team">Away Team:</label>
-    <select id="id_away_team" name="id_away_team" required>
-        @foreach($teams as $team)
-            <option value="{{ $team->team_id }}">{{ $team->team_name }}</option>
-        @endforeach
-    </select>
-    <br><br>
+        <div class="form-group">
+            <label for="match_date">Match Date:</label>
+            <input type="date" id="match_date" name="match_date" class="form-control" value="{{ $match->time }}" required>
+        </div>
 
-    <label for="match_date">Match Date:</label>
-    <input type="date" id="match_date" name="match_date">
-    <br><br>
+        <div class="form-group">
+            <label for="home_team_goals">Home Team Goals:</label>
+            <input type="number" id="home_team_goals" name="home_goals" class="form-control" value="{{ $match->home_team_goals }}" min="0">
+        </div>
 
-    <label for="home_team_goals">Home Team Goals:</label>
-    <input type="number" name="home_goals" min="0">
-    <br><br>
+        <div class="form-group">
+            <label for="away_team_goals">Away Team Goals:</label>
+            <input type="number" id="away_team_goals" name="away_goals" class="form-control" value="{{ $match->away_team_goals }}" min="0">
+        </div>
 
-    <label for="away_team_goals">Away Team Goals:</label>
-    <input type="number"  name="away_goals" min="0">
-    <br><br>
-
-    <label for="status">Match Status:</label>
-<select id="status" name="status" required>
-    <option value="Scheduled">Scheduled</option>
-    <option value="In Progress">In Progress</option>
-    <option value="Finished">Finished</option>
-</select>
-<br><br>
-
-    <button type="submit">Update Match</button>
-</form>
-
-
+        <button type="submit" class="btn btn-primary">Update Match</button>
+    </form>
+</div>
 @endsection

@@ -32,7 +32,7 @@ Match {{$match->match_id}}
                 <td class="py-3 px-6 border-b">{{ $match->home_team_goals }}</td>
                 <td class="py-3 px-6 border-b">{{ $match->away_team_goals }}</td>
                 <td class="py-3 px-6 border-b">{{ $match->match_result }}</td>
-                <td class="py-3 px-6 border-b">{{ $match->Status }}</td>
+                <td class="py-3 px-6 border-b">{{ $match->status }}</td>
                 </tr>
             </tbody>
         </table>
