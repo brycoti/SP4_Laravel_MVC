@@ -27,15 +27,4 @@ class Matches extends Model
         return $this->belongsTo(Team::class, 'id_away_team', 'team_id');
     }
 
-    public function determineMatchResult($homeGoals, $awayGoals)
-    {
-        if ($homeGoals > $awayGoals) {
-            return 'Home Team Win';
-        } elseif ($homeGoals < $awayGoals) {
-            return 'Away Team Win';
-        } elseif (!is_null($homeGoals) && !is_null($awayGoals) && $homeGoals == $awayGoals) {
-            return 'Draw';
-        }
-        return null;
-    }
 }

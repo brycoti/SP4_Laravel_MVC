@@ -25,7 +25,7 @@ Create Match
     <br><br>
 
     <label for="match_date">Match Date:</label>
-    <input type="date" id="match_date" name="match_date" required>
+    <input type="date" id="match_date" name="match_date">
     <br><br>
 
     <label for="home_team_goals">Home Team Goals:</label>

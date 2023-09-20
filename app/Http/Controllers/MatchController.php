@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use App\Models\Matches;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\Match_;
+use App\Http\Requests\StoreTeam;
 
 class MatchController extends Controller
 {
@@ -16,7 +16,6 @@ class MatchController extends Controller
         $matchesNames = Matches::with(['homeTeam', 'awayTeam'])->get();
 
         return view('matches.indexMatches', compact('matches'));
-
     }
 
     public function create()
@@ -27,7 +26,7 @@ class MatchController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(StoreTeam $request){
 
         // Check if both team goals are provided, then set the status to "Finished"
         if (!is_null($request->home_goals) && !is_null($request->away_goals) ) {
@@ -108,7 +107,7 @@ class MatchController extends Controller
         return view ('matches.editMatches', compact('match', 'teams'));
     }
 
-    public function update(Request $request, Matches $match)
+    public function update(StoreTeam $request, Matches $match)
     {
         // Step 1: Revert the old values
         $oldHomeGoals = $match->home_team_goals;
