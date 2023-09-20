@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MatchRequest;
 use App\Models\Team;
 use App\Models\Matches;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class MatchController extends Controller
     }
 
 
-    public function store(StoreTeam $request){
+    public function store(MatchRequest $request){
 
         // Check if both team goals are provided, then set the status to "Finished"
         if (!is_null($request->home_goals) && !is_null($request->away_goals) ) {
@@ -66,9 +67,12 @@ class MatchController extends Controller
             // Update Goals For and Against
             $homeTeam->goals_for += $request->home_goals;
             $homeTeam->goals_against += $request->away_goals;
+            $homeTeam->matches_played += 1;
 
             $awayTeam->goals_for += $request->away_goals;
             $awayTeam->goals_against += $request->home_goals;
+            $awayTeam->matches_played += 1;
+
 
             // Update Wins, Draws, Losses, and Points
             if ($request->home_goals > $request->away_goals) {
@@ -107,7 +111,7 @@ class MatchController extends Controller
         return view ('matches.editMatches', compact('match', 'teams'));
     }
 
-    public function update(StoreTeam $request, Matches $match)
+    public function update(MatchRequest $request, Matches $match)
     {
         // Step 1: Revert the old values
         $oldHomeGoals = $match->home_team_goals;
@@ -219,9 +223,11 @@ class MatchController extends Controller
             // Revert Goals For and Against
         $homeTeam->goals_for -= $match->home_team_goals;
         $homeTeam->goals_against -= $match->away_team_goals;
+        $homeTeam->matches_played -= 1;
 
         $awayTeam->goals_for -= $match->away_team_goals;
-        $awayTeam->goals_against -= $match->home_team_goals;
+        $awayTeam->goals_against - $match->home_team_goals;
+        $awayTeam->matches_played -= 1;
 
         // Revert Wins, Draws, Losses, and Points
         if ($match->match_result === 'Home Team Win') {
