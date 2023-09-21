@@ -32,8 +32,10 @@ class MatchController extends Controller
         // Check if both team goals are provided, then set the status to "Finished"
         if (!is_null($request->home_goals) && !is_null($request->away_goals) ) {
             $request->merge(['status' => 'Finished']);
+            $matchStatus = 'Finished';
         } else {
             $request->merge(['status' => 'Scheduled']);
+            $matchStatus = 'Scheduled';
         }
 
         // Determine match result based on goals
@@ -57,7 +59,7 @@ class MatchController extends Controller
             'home_team_goals'=> $request->home_goals,
             'away_team_goals'=>$request->away_goals,
             'match_result' => $matchResult,
-            'status' => $request->status,
+            'status' => $matchStatus,
         ]);
 
         $homeTeam = Team::find($request->id_home_team);
@@ -128,6 +130,12 @@ class MatchController extends Controller
         $awayTeam->goals_for -= $oldAwayGoals;
         $awayTeam->goals_against -= $oldHomeGoals;
 
+        if ($match->status === 'Finished') {
+            $homeTeam->matches_played -= 1;
+            $awayTeam->matches_played -= 1;
+        }
+    
+
         // Revert Wins, Draws, Losses, and Points
         switch($oldMatchResult) {
             case 'Home Team Win':
@@ -183,9 +191,11 @@ class MatchController extends Controller
         if ($request->status === 'Finished') {
             $homeTeam->goals_for += $request->home_goals;
             $homeTeam->goals_against += $request->away_goals;
+            $homeTeam->matches_played += 1;
 
             $awayTeam->goals_for += $request->away_goals;
             $awayTeam->goals_against += $request->home_goals;
+            $awayTeam->matches_played += 1;
 
             switch($matchResult) {
                 case 'Home Team Win':

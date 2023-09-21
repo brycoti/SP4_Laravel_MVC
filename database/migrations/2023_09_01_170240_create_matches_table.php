@@ -19,7 +19,7 @@ class CreateMatchesTable extends Migration
             $table->integer('home_team_goals')->nullable()->default(0);
             $table->integer('away_team_goals')->nullable()->default(0);
             $table->enum('match_result', ['Home Team Win', 'Away Team Win', 'Draw'])->nullable();
-            $table->enum('status', ['Scheduled', 'Finished'])->default('Scheduled');
+            $table->enum('status', ['Scheduled', 'Finished'])->nullable()->default('Scheduled');
         });
 
         Schema::table('matches', function (Blueprint $table) {
