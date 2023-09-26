@@ -10,7 +10,7 @@
             <h1 class="text-3xl font-bold mb-4">Index Matches</h1>
             <p class="text-xl font-bold mb-4">Select the desired match from the list by clicking on its name. Once highlighted, click on it to view more detailed information. </h1>
         </p>
-            
+
 
         <div class="shadow-lg rounded-lg overflow-hidden bg-white">
             <table class="min-w-full leading-normal">
@@ -29,14 +29,14 @@
                 <tbody>
                     @foreach ($matches as $match)
                     <tr class="hover:bg-gray-100">
-                        <td class="py-3 px-6 border-b"><a href="{{ route('matches.show', $match->match_id) }}" class="text-blue-600 hover:underline">{{ $match->match_id }}</a></td>
-                        <td class="py-3 px-6 border-b">{{ $match->time }}</td>
-                        <td class="py-3 px-6 border-b">{{ $match->homeTeam->team_name }}</td>
-                        <td class="py-3 px-6 border-b">{{ $match->awayTeam->team_name }}</td>
-                        <td class="py-3 px-6 border-b">{{ $match->home_team_goals }}</td>
-                        <td class="py-3 px-6 border-b">{{ $match->away_team_goals }}</td>
-                        <td class="py-3 px-6 border-b">{{ $match->match_result }}</td>
-                        <td class="py-3 px-6 border-b">{{ $match->Status }}</td>
+                        <td class="text-center py-3 px-6 border-b"><a href="{{ route('matches.show', $match->match_id) }}" class="text-blue-600 hover:underline">{{ $match->match_id }}</a></td>
+                        <td class="text-center py-3 px-6 border-b">{{ $match->time }}</td>
+                        <td class="text-center py-3 px-6 border-b">{{ $match->homeTeam->team_name }}</td>
+                        <td class="text-center py-3 px-6 border-b">{{ $match->awayTeam->team_name }}</td>
+                        <td class="text-center py-3 px-6 border-b">{{ $match->home_team_goals }}</td>
+                        <td class="text-center py-3 px-6 border-b">{{ $match->away_team_goals }}</td>
+                        <td class="text-center py-3 px-6 border-b">{{ $match->match_result }}</td>
+                        <td class="text-center py-3 px-6 border-b">{{ $match->status }}</td>
                     </tr>
                     @endforeach
                 </tbody>

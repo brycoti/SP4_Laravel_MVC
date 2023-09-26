@@ -16,9 +16,9 @@ Team {{$team->team_name}}
         <table class="min-w-full leading-normal bg-white">
             <thead class="bg-blue-600 text-white">
                 <tr>
+                    <th class="py-3 px-6">Points</th>
                     <th class="py-3 px-6">Goals For</th>
                     <th class="py-3 px-6">Goals Against</th>
-                    <th class="py-3 px-6">Points</th>
                     <th class="py-3 px-6">Wins</th>
                     <th class="py-3 px-6">Losses</th>
                     <th class="py-3 px-6">Draws</th>
@@ -27,9 +27,9 @@ Team {{$team->team_name}}
             </thead>
             <tbody>
                 <tr class="hover:bg-gray-100 transition duration-300">
+                    <td class="py-3 px-6 border-b">{{ $team->points }}</td>
                     <td class="py-3 px-6 border-b">{{ $team->goals_for }}</td>
                     <td class="py-3 px-6 border-b">{{ $team->goals_against }}</td>
-                    <td class="py-3 px-6 border-b">{{ $team->points }}</td>
                     <td class="py-3 px-6 border-b">{{ $team->wins }}</td>
                     <td class="py-3 px-6 border-b">{{ $team->losses }}</td>
                     <td class="py-3 px-6 border-b">{{ $team->draws }}</td>

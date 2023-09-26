@@ -25,14 +25,14 @@ Match {{$match->match_id}}
             </thead>
             <tbody>
                 <tr class="hover:bg-gray-100 transition duration-300">
-                <td class="py-3 px-6 border-b">{{ $match->match_id }}</td>
-                <td class="py-3 px-6 border-b">{{ $match->time }}</td>
-                <td class="py-3 px-6 border-b">{{ $match->homeTeam->team_name }} </td>
-                <td class="py-3 px-6 border-b">{{ $match->awayTeam->team_name }} </td>
-                <td class="py-3 px-6 border-b">{{ $match->home_team_goals }}</td>
-                <td class="py-3 px-6 border-b">{{ $match->away_team_goals }}</td>
-                <td class="py-3 px-6 border-b">{{ $match->match_result }}</td>
-                <td class="py-3 px-6 border-b">{{ $match->Status }}</td>
+                <td class="text-center py-3 px-6 border-b">{{ $match->match_id }}</td>
+                <td class="text-center py-3 px-6 border-b">{{ $match->time }}</td>
+                <td class="text-center py-3 px-6 border-b">{{ $match->homeTeam->team_name }} </td>
+                <td class="text-center py-3 px-6 border-b">{{ $match->awayTeam->team_name }} </td>
+                <td class="text-center py-3 px-6 border-b">{{ $match->home_team_goals }}</td>
+                <td class="text-center py-3 px-6 border-b">{{ $match->away_team_goals }}</td>
+                <td class="text-center py-3 px-6 border-b">{{ $match->match_result }}</td>
+                <td class="text-center py-3 px-6 border-b">{{ $match->status }}</td>
                 </tr>
             </tbody>
         </table>
@@ -42,7 +42,7 @@ Match {{$match->match_id}}
         <!-- Edit Team Button -->
         <a href="{{route('matches.edit', $match)}}"
            class="inline-flex items-center bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition duration-300 mr-4">
-           Edit Team
+           Edit Match
         </a>
 
         <!-- Delete Team Button -->
