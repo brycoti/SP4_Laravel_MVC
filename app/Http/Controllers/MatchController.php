@@ -1,13 +1,10 @@
 <?php
-// app/Http/Controllers/MatchController.php
 
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MatchRequest;
 use App\Models\Team;
 use App\Models\Matches;
-use Illuminate\Http\Request;
-use App\Http\Requests\StoreTeam;
 
 class MatchController extends Controller
 {
