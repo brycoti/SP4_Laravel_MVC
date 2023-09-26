@@ -11,6 +11,7 @@ class Matches extends Model
 
     protected $table = "matches"; // match es una palabra reservada, asi me aseguro usar la tabla matches
     protected $primaryKey = 'match_id';
+    protected $guarded = [];
     public $timestamps = false;
 
     public function homeTeam()
@@ -25,4 +26,5 @@ class Matches extends Model
     {
         return $this->belongsTo(Team::class, 'id_away_team', 'team_id');
     }
+
 }

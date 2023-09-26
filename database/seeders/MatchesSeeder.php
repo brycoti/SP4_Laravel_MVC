@@ -21,8 +21,8 @@ class MatchesSeeder extends Seeder
                 'home_team_goals' => 0,
                 'away_team_goals' => 0,
                 'match_result' => 'Draw',
-                'Status' => 'Finished',
-                
+                'status' => 'Finished',
+
             ],
             [
                 'time' => Carbon::now()->subDays(10),
@@ -31,8 +31,8 @@ class MatchesSeeder extends Seeder
                 'home_team_goals' => 2,
                 'away_team_goals' => 1,
                 'match_result' => 'Home Team Win',
-                'Status' => 'Finished',
-                
+                'status' => 'Finished',
+
             ],
             [
                 'time' => Carbon::now(),
@@ -41,8 +41,8 @@ class MatchesSeeder extends Seeder
                 'home_team_goals' => 3,
                 'away_team_goals' => 0,
                 'match_result' => null,
-                'Status' => 'In Progress',
-               
+                'status' => 'Finished',
+
             ],
             [
                 'time' => Carbon::now()->addDays(2),
@@ -51,8 +51,8 @@ class MatchesSeeder extends Seeder
                 'home_team_goals' => 0,
                 'away_team_goals' => 0,
                 'match_result' => null,
-                'Status' => 'Scheduled',
-              
+                'status' => 'Scheduled',
+
             ],
             [
                 'time' => Carbon::now()->addDays(4),
@@ -61,8 +61,8 @@ class MatchesSeeder extends Seeder
                 'home_team_goals' => 0,
                 'away_team_goals' => 0,
                 'match_result' => null,
-                'Status' => 'Scheduled',
-                
+                'status' => 'Scheduled',
+
             ],
             [
                 'time' => Carbon::now()->addDays(6),
@@ -71,11 +71,9 @@ class MatchesSeeder extends Seeder
                 'home_team_goals' => 0,
                 'away_team_goals' => 0,
                 'match_result' => null,
-                'Status' => 'Scheduled',
-                
+                'status' => 'Scheduled',
+
             ],
-
-
         ]);
     }
 }

@@ -11,7 +11,7 @@ Edit Team {{$team->team_name}}
         <h1 class="text-white text-3xl font-semibold mb-4">Edit Team</h1>
         <p class="text-blue text-lg">Update a team</p>
     </div>
-    
+
     <div class="w-full max-w-lg mx-auto bg-indigo-100 shadow-md rounded px-8 pt-6 pb-8">
         <form action="{{ route('teams.update', $team->team_id) }}" method="POST" class="bg-white p-8 rounded-lg shadow-md">
             @csrf
@@ -19,16 +19,16 @@ Edit Team {{$team->team_name}}
 
             <div class="mb-6 bg-in">
                 <label for="name" class="block text-lg font-medium text-blue-900 mb-2">Team name:
-                    <input type="text" id="name" name="team_name" value="{{ old('team_name', $team->team_name) }}" 
-                       placeholder="Type the name of the team" 
+                    <input type="text" id="name" name="team_name" value="{{ old('team_name', $team->team_name) }}"
+                       placeholder="Type the name of the team"
                        class="mt-1 p-3 w-full border rounded-md border-blue-200 focus:border-blue-500 transition-all duration-300 focus:ring-2 focus:ring-blue-500 outline-none">
-            
+
                 </label>
 
-                @error('team_name') 
-                    <br>    
+                @error('team_name')
+                    <br>
                         <small>*{{$message}}</small>
-                    <br>    
+                    <br>
                 @enderror
 
                 </div>
@@ -41,4 +41,3 @@ Edit Team {{$team->team_name}}
 </div>
 
 @endsection
-

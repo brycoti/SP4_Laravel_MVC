@@ -16,11 +16,10 @@ class CreateMatchesTable extends Migration
             $table->dateTime('time')->nullable();
             $table->unsignedInteger('id_home_team');
             $table->unsignedInteger('id_away_team');
-            $table->integer('home_team_goals')->default(0);
-            $table->integer('away_team_goals')->default(0);
+            $table->integer('home_team_goals')->nullable()->default(0);
+            $table->integer('away_team_goals')->nullable()->default(0);
             $table->enum('match_result', ['Home Team Win', 'Away Team Win', 'Draw'])->nullable();
-            $table->enum('Status', ['Scheduled', 'In Progress', 'Finished'])->default('Scheduled');
-            // $table->timestamp('deleted_at')->nullable();
+            $table->enum('status', ['Scheduled', 'Finished'])->nullable()->default('Scheduled');
         });
 
         Schema::table('matches', function (Blueprint $table) {

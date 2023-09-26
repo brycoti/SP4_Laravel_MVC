@@ -23,4 +23,5 @@ class Team extends Model
     public function awayMatches() {
         return $this->hasMany(Matches::class, 'id_away_team', 'team_id');
     }
+
 }
